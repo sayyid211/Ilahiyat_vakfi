@@ -1,0 +1,19 @@
+{
+  "Navbar": {
+    "title": "Elaziğ İlahiyat ve Harput İlim Vakfı",
+    "corporate": "Corporate",
+    "about": "About Us",
+    "aboutDesc": "Our foundation's mission, vision, and purpose.",
+    "board": "Board of Directors",
+    "boardDesc": "The management team of our foundation.",
+    "contact": "Contact",
+    "contactDesc": "Get in touch with us.",
+    "activities": "Activities"
+  },
+  "Hero": {
+    "title": "A Bridge for Knowledge, Wisdom, and the Future",
+    "subtitle": "The Elaziğ İlahiyat ve Harput İlim Vakfı supports academic research and produce projects that contribute to social development.",
+    "projectsBtn": "Explore Our Projects",
+    "aboutBtn": "About Us"
+  }
+}

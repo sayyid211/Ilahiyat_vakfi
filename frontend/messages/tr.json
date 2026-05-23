@@ -1,0 +1,19 @@
+{
+  "Navbar": {
+    "title": "İlahiyat ve Harput İlim Vakfı",
+    "corporate": "Kurumsal",
+    "about": "Hakkımızda",
+    "aboutDesc": "Vakfımızın misyonu, vizyonu ve kuruluş gayesi.",
+    "board": "Yönetim Kurulu",
+    "boardDesc": "Vakfımızın yönetim kadrosu.",
+    "contact": "İletişim",
+    "contactDesc": "Bize ulaşın.",
+    "activities": "Faaliyetler"
+  },
+  "Hero": {
+    "title": "İlim, İrfan ve Gelecek İçin Bir Köprü",
+    "subtitle": "İlahiyat ve Harput İlim Vakfı olarak, akademik araştırmaları destekliyor ve toplumsal gelişime katkı sağlayacak projeler üretiyoruz.",
+    "projectsBtn": "Projelerimizi İnceleyin",
+    "aboutBtn": "Hakkımızda"
+  }
+}
