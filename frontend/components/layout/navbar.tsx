@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -21,9 +22,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Globe, Menu, X } from "lucide-react";
 
+
 export function Navbar() {
   // State to manage the mobile menu open/close action
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname.includes("/admin")) {
+    return null; 
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -43,7 +50,7 @@ export function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link
-                    href="/anasayfa"
+                    href="/"
                     // Removed bg-accent hovers, added hover:text-blue-600
                     className="group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-blue-600 focus:text-blue-600 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   >
@@ -95,8 +102,8 @@ export function Navbar() {
                     <ListItem href="/dua-ve-bedduasi" title="DUA VE BEDDUASI">
                       Vakfımızın yönetim kadrosu.
                     </ListItem>
-                    <ListItem href="/ilim-ve-kultur-evi" title="İLİM VE KÜLTÜR EVİMİZ">
-                      Vakfımızın yönetim kadrosu.
+                    <ListItem href="/galeri" title="Fotoğraf & Video Galerisi">
+                      Vakıf etkinliklerimizden kareler.
                     </ListItem>
                     <ListItem href="/bagis" title="BAĞIŞ">
                       Vakfımızın yönetim kadrosu.
@@ -153,6 +160,16 @@ export function Navbar() {
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/ilim-ve-kultur-evi"
+                    className="group inline-flex h-10 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:text-blue-600 focus:text-blue-600 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  >
+                    Dâru'l-'Ulûm
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -200,7 +217,7 @@ export function Navbar() {
             <Link href="/istisare-heyeti" className="text-sm text-muted-foreground pl-2 transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>İstişare Heyeti</Link>
             <Link href="/tarihcesi" className="text-sm text-muted-foreground pl-2 transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Tarihçesi</Link>
             <Link href="/dua-ve-bedduasi" className="text-sm text-muted-foreground pl-2 transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Dua ve Bedduası</Link>
-            <Link href="/ilim-ve-kultur-evi" className="text-sm text-muted-foreground pl-2 transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>İlim ve Kültür Evimiz</Link>
+            <Link href="/galeri" className="text-sm text-muted-foreground pl-2 transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Fotoğraf & Video Galerisi</Link>
             <Link href="/bagis" className="text-sm text-muted-foreground pl-2 transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Bağış</Link>
             <Link href="/iletisim" className="text-sm text-muted-foreground pl-2 transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>İletişim</Link>
           </div>
@@ -217,6 +234,10 @@ export function Navbar() {
           <Link href="/yurt" className="text-sm font-medium transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>
             Yurdumuz
           </Link>
+          <Link href="/ilim-ve-kultur-evi" className="text-sm font-medium transition-colors hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>
+            Dâru'l-'Ulûm
+          </Link>
+          
         </div>
       )}
     </header>

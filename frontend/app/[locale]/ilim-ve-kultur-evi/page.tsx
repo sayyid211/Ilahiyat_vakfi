@@ -20,7 +20,7 @@ export default function IlimKulturPage() {
               İlim ve Kültür Evimiz
             </h1>
             <p className="mt-4 text-slate-400 text-lg">
-              İlim ve kültür alanında Elazığ'a hizmet verecek olan yeni merkezimizin hazırlık çalışmaları.
+              İlim ve kültür alanında Elazığ&apos;a hizmet verecek olan yeni merkezimizin hazırlık çalışmaları.
             </p>
           </div>
         </div>

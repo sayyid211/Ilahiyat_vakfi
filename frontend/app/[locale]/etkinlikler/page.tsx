@@ -1,53 +1,134 @@
-import { useTranslations } from 'next-intl';
+"use client";
 
-export default function InnerPageTemplate() {
-  // If you want to use the dictionary, you can activate this:
-  // const t = useTranslations('SomeDictionarySection');
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Calendar, MapPin, ArrowRight, Loader2, Image as ImageIcon } from "lucide-react";
+import { api, API_BASE_URL } from "../../../lib/api";
+
+interface ActivityItem {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  imageUrl: string;
+  eventDate: string;
+  location?: string;
+}
+
+export default function PublicActivitiesPage() {
+  const [activities, setActivities] = useState<ActivityItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchActivities = async () => {
+      try {
+        // Fetches ONLY published activities
+        const data = await api.get("/activity"); 
+        setActivities(data);
+      } catch (err) {
+        console.error("Etkinlikler yüklenemedi:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchActivities();
+  }, []);
+
+  const formatEventDate = (isoString: string) => {
+    const date = new Date(isoString);
+    return date.toLocaleDateString("tr-TR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
 
   return (
-    <>
-      {/* 1. PAGE HEADER (The Blue Section)
-        Notice the padding is smaller (py-12) than the homepage, 
-        and the text is smaller (text-3xl md:text-4xl) to signify it's an inner page.
-      */}
-      <section className="bg-slate-900 text-white py-12 md:py-16 border-b border-slate-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Sayfa Başlığı (Page Title)
-            </h1>
-            {/* Optional Subtitle or Breadcrumbs can go here */}
-            <p className="mt-4 text-slate-400 text-lg">
-              Kısa bir açıklama veya alt başlık buraya gelebilir.
-            </p>
-          </div>
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Page Header */}
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Etkinliklerimiz</h1>
+          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+            Vakfımız tarafından düzenlenen yaklaşan etkinlikleri, seminerleri ve programları buradan takip edebilirsiniz.
+          </p>
         </div>
-      </section>
 
-      {/* 2. MAIN CONTENT AREA (The White Section)
-        min-h-[50vh] ensures the page is tall enough to push the footer 
-        to the bottom even if there is no content yet.
-      */}
-      <section className="bg-white dark:bg-background py-12 md:py-16 min-h-[50vh]">
-        <div className="container mx-auto px-4">
-          
-          <div className="max-w-4xl bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-8 md:p-12 text-center border-dashed">
-            <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300 mb-2">
-              İçerik Hazırlanıyor
-            </h2>
-            <p className="text-slate-500 dark:text-slate-400">
-              Bu sayfanın tasarımı ve içerikleri daha sonra eklenecektir. Gelecekte buraya metinler, resimler, tablolar veya Strapi'den gelen dinamik veriler yerleştirilecek.
-            </p>
+        {/* Content Grid */}
+        {isLoading ? (
+          <div className="flex flex-col items-center justify-center py-24 text-teal-600">
+            <Loader2 className="w-10 h-10 animate-spin mb-4" />
+            <p className="text-slate-500 font-medium">Etkinlikler yükleniyor...</p>
           </div>
+        ) : activities.length === 0 ? (
+          <div className="text-center py-24 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+            <p className="text-slate-500 text-lg">Şu an için planlanmış bir etkinlik bulunmuyor.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {activities.map((item) => (
+              <Link 
+                key={item.id} 
+                href={`/tr/etkinlikler/${item.slug}`}
+                className="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              >
+                {/* Image Container */}
+                <div className="aspect-[16/9] w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                  {item.imageUrl ? (
+                    <Image 
+                      // This ensures there are no double-slashes or missing slashes in the URL
+                      src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`} 
+                      alt={item.title}
+                      fill
+                      unoptimized={process.env.NODE_ENV === "development"}
+                      // "text-transparent" is the magic trick that hides the ugly alt text if the image fails!
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 text-transparent"
+                    />
+                  ) : (
+                    <ImageIcon className="w-12 h-12 text-slate-300 dark:text-slate-600" />
+                  )}
+                </div>
 
-          {/* FUTURE COMPONENTS GO HERE:
-            <TeamGrid />
-            <ContactForm />
-            <HistoryTimeline />
-          */}
+                {/* Text Content */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-teal-600 dark:text-teal-400 mb-3">
+                    <span className="flex items-center gap-1.5 bg-teal-50 dark:bg-teal-500/10 px-2.5 py-1 rounded-md">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {formatEventDate(item.eventDate)}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 line-clamp-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6 flex-1">
+                    {item.description}
+                  </p>
 
-        </div>
-      </section>
-    </>
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 max-w-[60%]">
+                      {item.location && (
+                        <>
+                          <MapPin className="w-3.5 h-3.5 shrink-0" />
+                          <span className="truncate">{item.location}</span>
+                        </>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-1.5 text-sm font-semibold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 shrink-0">
+                      Detaylar <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

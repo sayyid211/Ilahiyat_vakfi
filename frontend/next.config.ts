@@ -5,6 +5,18 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 const nextConfig: NextConfig = {
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '4000', // Your NestJS backend port
+        pathname: '/public/uploads/**',
+      },
+      // Note: When you launch the real site, you will add your production backend URL here too!
+    ],
+  },
   /* config options here */
 };
 

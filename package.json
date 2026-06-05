@@ -1,0 +1,27 @@
+{
+  "name": "ilahiyat_vakfi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts":{
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev": "concurrently -c \"cyan.bold,blue.bold\" -n \"NEXT,NEST\" \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sayyid211/Ilahiyat_vakfi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sayyid211/Ilahiyat_vakfi/issues"
+  },
+  "homepage": "https://github.com/sayyid211/Ilahiyat_vakfi#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

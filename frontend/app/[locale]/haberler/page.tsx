@@ -1,53 +1,113 @@
-import { useTranslations } from 'next-intl';
+"use client";
 
-export default function InnerPageTemplate() {
-  // If you want to use the dictionary, you can activate this:
-  // const t = useTranslations('SomeDictionarySection');
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Calendar, ArrowRight, Loader2 } from "lucide-react";
+import { api, API_BASE_URL } from "../../../lib/api";
+
+interface NewsItem {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  imageUrl: string;
+  date: string;
+}
+
+export default function PublicNewsPage() {
+  const [news, setNews] = useState<NewsItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        // Fetches ONLY published news, sorted by newest first
+        const data = await api.get("/news"); 
+        setNews(data);
+      } catch (err) {
+        console.error("Haberler yüklenemedi:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchNews();
+  }, []);
+
+  const formatDate = (isoString: string) => {
+    return new Date(isoString).toLocaleDateString("tr-TR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  };
 
   return (
-    <>
-      {/* 1. PAGE HEADER (The Blue Section)
-        Notice the padding is smaller (py-12) than the homepage, 
-        and the text is smaller (text-3xl md:text-4xl) to signify it's an inner page.
-      */}
-      <section className="bg-slate-900 text-white py-12 md:py-16 border-b border-slate-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Sayfa Başlığı (Page Title)
-            </h1>
-            {/* Optional Subtitle or Breadcrumbs can go here */}
-            <p className="mt-4 text-slate-400 text-lg">
-              Kısa bir açıklama veya alt başlık buraya gelebilir.
-            </p>
-          </div>
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Page Header */}
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Haberler ve Duyurular</h1>
+          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+            Vakfımızla ilgili en güncel gelişmeleri, açılışları ve faaliyet haberlerini buradan takip edebilirsiniz.
+          </p>
         </div>
-      </section>
 
-      {/* 2. MAIN CONTENT AREA (The White Section)
-        min-h-[50vh] ensures the page is tall enough to push the footer 
-        to the bottom even if there is no content yet.
-      */}
-      <section className="bg-white dark:bg-background py-12 md:py-16 min-h-[50vh]">
-        <div className="container mx-auto px-4">
-          
-          <div className="max-w-4xl bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 p-8 md:p-12 text-center border-dashed">
-            <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300 mb-2">
-              İçerik Hazırlanıyor
-            </h2>
-            <p className="text-slate-500 dark:text-slate-400">
-              Bu sayfanın tasarımı ve içerikleri daha sonra eklenecektir. Gelecekte buraya metinler, resimler, tablolar veya Strapi'den gelen dinamik veriler yerleştirilecek.
-            </p>
+        {/* Content Grid */}
+        {isLoading ? (
+          <div className="flex flex-col items-center justify-center py-24 text-teal-600">
+            <Loader2 className="w-10 h-10 animate-spin mb-4" />
+            <p className="text-slate-500 font-medium">Haberler yükleniyor...</p>
           </div>
+        ) : news.length === 0 ? (
+          <div className="text-center py-24 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+            <p className="text-slate-500 text-lg">Şu an için yayında olan bir haber bulunmuyor.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {news.map((item) => (
+              <Link 
+                key={item.id} 
+                href={`/tr/haberler/${item.slug}`}
+                className="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              >
+                {/* Image Container */}
+                <div className="aspect-[16/9] w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800">
+                  <Image
+                    src={`${API_BASE_URL}${item.imageUrl}`}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    unoptimized={process.env.NODE_ENV === "development"}
+                  />
+                </div>
 
-          {/* FUTURE COMPONENTS GO HERE:
-            <TeamGrid />
-            <ContactForm />
-            <HistoryTimeline />
-          */}
+                {/* Text Content */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center gap-2 text-xs font-medium text-teal-600 dark:text-teal-400 mb-3">
+                    <Calendar className="w-4 h-4" />
+                    {formatDate(item.date)}
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 line-clamp-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-6 flex-1">
+                    {item.description}
+                  </p>
 
-        </div>
-      </section>
-    </>
+                  <div className="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 mt-auto">
+                    Haberi Oku <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

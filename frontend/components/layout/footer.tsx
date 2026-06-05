@@ -1,9 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 // Import the social brand icons from React Icons (FontAwesome 6 set)
 import { FaFacebook, FaInstagram, FaYoutube, FaXTwitter, FaLinkedin } from "react-icons/fa6";
 
 export function Footer() {
+
+  const pathname = usePathname();
+
+  // Hide footer on admin pages
+  if (pathname.includes("/admin")) {
+    return null; 
+  }
+
   return (
     <footer className="bg-[#0a0a0a] text-slate-300 py-12 md:py-16 border-t border-slate-800">
       <div className="container mx-auto px-4">
@@ -51,7 +62,7 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4 text-lg">Merkezler</h3>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/ilim-ve-kultur-evi" className="hover:text-white transition-colors">İLİM VE KÜLTÜR EVİMİZ</Link></li>
+              <li><Link href="/ilim-ve-kultur-evi" className="hover:text-white transition-colors">Dâru'l-'Ulûm</Link></li>
               <li><Link href="https://elazigasevi.org/" className="hover:text-white transition-colors">Elazığ Aşevi</Link></li>
               <li><Link href="/yurt" className="hover:text-white transition-colors">Yurdumuz</Link></li>
             </ul>
