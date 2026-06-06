@@ -39,7 +39,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center space-x-2 z-50">
           <Image src="/amblem.png" alt="Logo" width={40} height={40} />
           <span className="text-xl font-bold text-slate-900 dark:text-white">
-            Elaziğ İlahiyat ve Harput İlim Vakfı
+            Elazığ İlahiyat ve Harput İlim Vakfı
           </span>
         </Link>
 
