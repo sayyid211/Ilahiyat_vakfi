@@ -1,156 +1,191 @@
 import Image from "next/image";
 import { 
-  Library, 
-  Wrench, 
-  Info, 
-  Camera,
-  HardHat,
-  Users
+  BookOpen, 
+  Palette, 
+  Users, 
+  Coffee,
+  CalendarClock,
+  Landmark,
+  ChevronRight
 } from "lucide-react";
 
-export default function IlimKulturPage() {
+export default function DarulUlumPage() {
   return (
-    <>
-      {/* 1. PAGE HEADER */}
-      <section className="bg-slate-900 text-white py-12 md:py-16 border-b border-slate-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold tracking-tight flex items-center justify-center md:justify-start gap-4">
-              <Library className="w-10 h-10 text-amber-400" />
-              İlim ve Kültür Evimiz
-            </h1>
-            <p className="mt-4 text-slate-400 text-lg">
-              İlim ve kültür alanında Elazığ&apos;a hizmet verecek olan yeni merkezimizin hazırlık çalışmaları.
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
+      
+      {/* 1. HERO SECTION */}
+      <section className="relative bg-slate-900 text-white overflow-hidden">
+        {/* Abstract Background Elements */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-600/20 blur-3xl rounded-full"></div>
+        
+        <div className="container mx-auto px-4 py-20 lg:py-28 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 text-amber-400 text-sm font-semibold tracking-wide mb-6 border border-slate-700">
+                <Landmark className="w-4 h-4" />
+                <span>YENİ BİR KÜLTÜR HAVZASI</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-tight mb-6">
+                Dâru’l-Ulûm
+              </h1>
+              <p className="text-slate-300 text-lg md:text-xl leading-relaxed text-justify mb-8">
+                Şehrimizin kalbinde, tarihin ve geleceğin kesişim noktasında yükselen Dâru’l-Ulûm, sadece geçmişin bir hatırası değil; ilmin, sanatın ve toplumsal hayatın yeniden harmanlandığı yaşayan bir kültür havzası olarak kapılarını açıyor.
+              </p>
+              <p className="text-slate-400 text-md leading-relaxed text-justify">
+                Üniversitemizin tüm fakültelerinden gençleri ve şehir halkımızın her bir ferdini aynı çatı altında buluşturmayı hedefleyen merkezimiz, medeniyetimizin köklü mirasını modern bir vizyonla geleceğe taşımak için yola çıkıyor.
+              </p>
+            </div>
+
+            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-slate-700/50 group">
+              <Image 
+                src="/kultur-evi1.png" 
+                alt="Dâru'l-Ulûm Merkezi" 
+                fill 
+                className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 2. PILLARS OF DARU'L-ULUM (Alternating Layout) */}
+      <section className="py-20 lg:py-28 container mx-auto px-4 max-w-7xl">
+        <div className="space-y-24">
+
+          {/* PILLAR 1: İlim */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
+              <Image src="/kultur-evi2.png" alt="İlmî Meclisler" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div className="order-1 lg:order-2 lg:pl-10">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-serif mb-6">İlmî Meclisler ve Eğitim Halkaları</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg mb-6 text-justify">
+                Zamanı aşan bir geleneğin izinde, zihni ve kalbi besleyen ilim meclislerimizi yeniden canlandırıyoruz. Merkezimiz bünyesinde düzenli olarak gerçekleştirilecek olan;
+              </p>
+              <ul className="space-y-4 text-slate-700 dark:text-slate-300 text-justify">
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-amber-500 shrink-0 mt-1" />
+                  <div><strong>Temel İslam Bilimleri Meclisleri:</strong> Tefsir, Fıkıh, Hadis ve Kelam ilimleri başta olmak üzere, medeniyetimizin köklü bilgi mirasından beslenen derinlikli okuma ve müzakere halkaları oluşturuyoruz.</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-amber-500 shrink-0 mt-1" />
+                  <div><strong>Tarih ve Düşünce Meclisleri:</strong> Geçmişin rehberliğinde bugünü anlamlandırmak adına medeniyet, kültür ve düşünce tarihi üzerine ufuk açıcı dersler ve oturumlar düzenliyoruz.</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-amber-500 shrink-0 mt-1" />
+                  <div><strong>Akademik Seminerler:</strong> Farklı disiplinlerden araştırmacı ve akademisyenleri ağırlayarak büyük konferans salonlarının mesafeli havasından uzak; üniversite gençliğimizi ve şehir halkımızı yüz yüze, göz temasının ve samimi bir diyaloğun kurulduğu butik oturumlarda bir araya getiriyoruz.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* PILLAR 2: Sanat */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="lg:pr-10">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400">
+                <Palette className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-serif mb-6">Kültür, Sanat ve Edebiyat Atölyeleri</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg mb-6 text-justify">
+                Estetiği ve kelamın gücünü hayatın merkezine alıyoruz. Sadece teorik eğitimle yetinmiyor, medeniyetimizin estetik mirasını atölyelerimize taşıyoruz:
+              </p>
+              <ul className="space-y-4 text-slate-700 dark:text-slate-300 text-justify">
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-purple-500 shrink-0 mt-1" />
+                  <div><strong>Geleneksel İslam Sanatları:</strong> Alanında uzman eğitmenler ve kurumsal iş birlikleri rehberliğinde düzenlenecek hat, tezhip ve ebru atölyeleriyle, estetik mirasımızı genç kuşaklarla buluşturuyoruz.</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-purple-500 shrink-0 mt-1" />
+                  <div><strong>Edebiyat ve Söyleşi:</strong> Ruhumuzu dinlendiren edebi okumalar, metin tahlilleri ve derinlikli söyleşilerle kelimelerin dünyasında buluşuyoruz.</div>
+                </li>
+              </ul>
+            </div>
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
+              <Image src="/kultur-evi3.png" alt="Sanat Atölyeleri" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+          {/* PILLAR 3: Toplum */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
+              <Image src="/kultur-evi4.png" alt="Yaşayan Mekan" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div className="order-1 lg:order-2 lg:pl-10">
+              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 dark:text-emerald-400">
+                <Users className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-serif mb-6">Yaşayan Mekan: Gençlik ve Toplum</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg mb-6 text-justify">
+                Bu çatı, üniversitemizin sadece tek bir bölümüne değil, tüm öğrencilerine ve şehir halkına aittir. Gençliğin enerjisini ve toplumun tecrübesini burada bir araya getiriyoruz:
+              </p>
+              <ul className="space-y-4 text-slate-700 dark:text-slate-300 text-justify">
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-emerald-500 shrink-0 mt-1" />
+                  <div><strong>Öğrenci Kulüpleri Etkinlik Alanı:</strong> Üniversitemiz kulüplerinin fikirlerini projeye dönüştürebileceği, özgürce faaliyet ve atölye çalışması yürütebileceği canlı bir platform sunuyoruz.</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-emerald-500 shrink-0 mt-1" />
+                  <div><strong>Esnek ve Kapsayıcı Planlama:</strong> Toplumun tüm kesimlerinin huzurla istifade edebilmesi adına, hanımlara ve beylere özel dönemsel ve esnek zamanlı programlar organize ediyoruz.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* PILLAR 4: Sosyal */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="lg:pr-10">
+              <div className="w-12 h-12 bg-rose-100 dark:bg-rose-900/30 rounded-2xl flex items-center justify-center mb-6 text-rose-600 dark:text-rose-400">
+                <Coffee className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-serif mb-6">Zihin ve Gönül Dünyanıza Hizmet Eden Sosyal Alanlar</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-lg mb-6 text-justify">
+                Koşturmacanın ortasında dingin bir soluklanma, odaklanma ve sıcak bir hasbihal ortamı arayan herkes için kapımız hep açık:
+              </p>
+              <ul className="space-y-4 text-slate-700 dark:text-slate-300 text-justify">
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-rose-500 shrink-0 mt-1" />
+                  <div><strong>Kütüphane ve Okuma Salonu:</strong> Araştırmalarınızı yapabileceğiniz, kitabınızı alıp derinleşebileceğiniz sessiz, nitelikli ve huzurlu çalışma alanları.</div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ChevronRight className="w-5 h-5 text-rose-500 shrink-0 mt-1" />
+                  <div><strong>Sıcak Bir İkram, Samimi Bir Hasbihal:</strong> Gün boyu eksik olmayan çay servisimiz ve öğle saatlerinde gönülleri ısıtacak geleneksel çorba ikramımız ile burada bir aile sıcaklığı inşa ediyoruz.</div>
+                </li>
+              </ul>
+            </div>
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
+              <Image src="/kultur-evi5.png" alt="Sosyal Alanlar" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. IMPORTANT NOTE BANNED */}
+      <section className="container mx-auto px-4 max-w-5xl pb-20">
+        <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-slate-700">
+          <div className="absolute top-0 right-0 p-8 opacity-10">
+            <CalendarClock className="w-48 h-48 text-white" />
+          </div>
+          
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+              <span className="bg-amber-500 text-slate-900 text-xs px-3 py-1 rounded-full uppercase tracking-wider font-bold">Önemli Not</span>
+              Randevu ve Planlama
+            </h3>
+            <p className="text-slate-300 text-lg leading-relaxed text-justify max-w-3xl">
+              Merkezimiz bünyesindeki kütüphane, çalışma salonları ve kontenjanlı atölye çalışmalarından tüm katılımcılarımızın en verimli ve konforlu şekilde istifade edebilmesi adına, hizmetlerimiz online randevu sistemi üzerinden yürütülecektir. Faaliyet takvimi ve randevu işlemleriyle ilgili detaylar çok yakında dijital platformlarımız üzerinden ilan edilecektir.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 2. MAIN ANNOUNCEMENT & HERO IMAGE */}
-      <section className="bg-slate-50 dark:bg-background py-16">
-        <div className="container mx-auto px-4 max-w-6xl">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden">
-            
-            {/* Left: Text Content */}
-            <div className="p-8 md:p-12 order-2 lg:order-1">
-              {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-400 text-sm font-bold tracking-wide mb-6">
-                <Wrench className="w-4 h-4" />
-                <span>PROJE AŞAMASINDA</span>
-              </div>
-
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6 font-serif leading-tight">
-                Tadilat Sürecine İlişkin Bilgilendirme
-              </h2>
-              
-              <div className="space-y-5 text-slate-600 dark:text-slate-300 leading-relaxed text-lg text-justify">
-                <p>
-                  İlim ve kültür alanında hizmet vermek üzere kurulan merkezimizin fiziki hazırlık çalışmaları devam etmektedir.
-                </p>
-                <p>
-                  Hâlihazırda yürütülmekte olan tadilat sürecinde, mekânın daha verimli, düzenli ve istifadeye uygun hale getirilmesi amaçlanmaktadır.
-                </p>
-                <p>
-                  Çalışmalar tamamlandığında, merkezimizin nihai hali kamuoyu ile paylaşılacaktır. Bu süreçte göstermiş olduğunuz ilgi ve destek için teşekkür ederiz.
-                </p>
-              </div>
-
-              {/* Decorative Info Note */}
-              <div className="mt-8 flex items-start gap-3 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700">
-                <Info className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Gelişmelerden ve açılış tarihinden haberdar olmak için duyurular sayfamızı takip edebilirsiniz.
-                </p>
-              </div>
-            </div>
-
-            {/* Right: Main Building Feature Image */}
-            <div className="relative h-[400px] lg:h-full w-full bg-slate-200 dark:bg-slate-800 order-1 lg:order-2 group">
-              {/* PLACEHOLDER: The hammer icon. Replace with the white house image. */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <HardHat className="w-24 h-24 text-slate-400 group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              
-              {/* HOW TO ADD YOUR IMAGE:
-                1. Put "kultur-evi-ana.jpg" in your public folder.
-                2. Uncomment the Image tag below.
-              */}
-              <Image 
-                src="/kultur-evi1.png" 
-                alt="İlim ve Kültür Evi Tadilatı" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-105" 
-              /> 
-              
-              
-              {/* Gradient overlay to make it look premium */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent lg:hidden"></div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 3. SITE VISIT GALLERY (The 4 Photos) */}
-      <section className="py-16 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 max-w-6xl">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-white font-serif flex items-center gap-3 mb-2">
-                <Users className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                Saha Ziyaretleri ve İncelemeler
-              </h2>
-              <p className="text-slate-500 dark:text-slate-400">
-                Yönetim ve mütevelli heyetimizin inşaat alanındaki denetim ve istişareleri.
-              </p>
-            </div>
-            <div className="flex items-center gap-2 text-sm font-medium text-slate-400 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full w-max">
-              <Camera className="w-4 h-4" />
-              Güncel Fotoğraflar
-            </div>
-          </div>
-
-          {/* Photo Grid - Modern Masonry Style */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            {/* Gallery Image 1 */}
-            <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all">
-               <div className="absolute inset-0 flex items-center justify-center">
-                 <span className="text-slate-400 font-medium">Görsel 1 (Ziyaret)</span>
-               </div>
-                <Image src="/kultur-evi5.png" alt="Saha Ziyareti 1" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-
-            {/* Gallery Image 2 */}
-            <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all">
-               <div className="absolute inset-0 flex items-center justify-center">
-                 <span className="text-slate-400 font-medium">Görsel 2 (Ziyaret)</span>
-               </div>
-                <Image src="/kultur-evi2.png" alt="Saha Ziyareti 2" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-
-            {/* Gallery Image 3 */}
-            <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all">
-               <div className="absolute inset-0 flex items-center justify-center">
-                 <span className="text-slate-400 font-medium">Görsel 3 (Ziyaret)</span>
-               </div>
-               <Image src="/kultur-evi3.png" alt="Saha Ziyareti 3" fill className="object-cover group-hover:scale-105 transition-transform duration-700" /> 
-            </div>
-
-            {/* Gallery Image 4 */}
-            <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all">
-               <div className="absolute inset-0 flex items-center justify-center">
-                 <span className="text-slate-400 font-medium">Görsel 4 (Teras/Balkon)</span>
-               </div>
-                <Image src="/kultur-evi4.png" alt="Saha Ziyareti 4" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-    </>
+    </div>
   );
 }
