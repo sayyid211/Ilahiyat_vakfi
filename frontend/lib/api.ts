@@ -1,7 +1,7 @@
 // frontend/lib/api.ts
 
-// 1. Ensure this is firmly pointed at your NestJS port!
-export const API_BASE_URL = "NEXT_PUBLIC_API_URL";
+// 1. Correctly reading the environment variable from Next.js
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // 2. A master response handler that catches HTML pages safely
 const handleResponse = async (res: Response) => {
