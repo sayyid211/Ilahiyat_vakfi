@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { Calendar, ArrowRight, Loader2 } from "lucide-react";
 import { api, API_BASE_URL } from "../../../lib/api";
 
@@ -74,13 +74,11 @@ export default function PublicNewsPage() {
               >
                 {/* Image Container */}
                 <div className="aspect-[16/9] w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800">
-                  <Image
+                  <img
                     src={`${API_BASE_URL}${item.imageUrl}`}
                     alt={item.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    unoptimized={process.env.NODE_ENV === "development"}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
                 </div>
 

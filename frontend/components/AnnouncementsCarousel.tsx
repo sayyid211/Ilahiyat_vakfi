@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { api, API_BASE_URL } from "../lib/api";
 

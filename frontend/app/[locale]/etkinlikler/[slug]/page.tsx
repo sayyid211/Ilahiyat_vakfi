@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, Calendar, Loader2, Share2, MapPin, Clock } from "lucide-react";
 import { api, API_BASE_URL } from "../../../../lib/api";
 
@@ -67,13 +66,11 @@ export default function ActivityDetailPage() {
       {/* Hero Image Section with Next.js Image */}
       <div className="w-full h-[40vh] md:h-[60vh] relative bg-slate-900">
         <div className="absolute inset-0 bg-black/50 z-10" /> 
-        <Image 
+        <img 
           src={`${API_BASE_URL}${activity.imageUrl}`} 
           alt={activity.title}
-          fill
-          priority
-          unoptimized={process.env.NODE_ENV === "development"}
-          className="object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
         
         {/* Title & Info Overlay */}

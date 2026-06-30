@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Calendar, MapPin, ArrowRight, Loader2, Image as ImageIcon } from "lucide-react";
 import { api, API_BASE_URL } from "../../../lib/api";
 
@@ -79,14 +78,11 @@ export default function PublicActivitiesPage() {
                 {/* Image Container */}
                 <div className="aspect-[16/9] w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
                   {item.imageUrl ? (
-                    <Image 
-                      // This ensures there are no double-slashes or missing slashes in the URL
+                    <img 
                       src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`} 
                       alt={item.title}
-                      fill
-                      unoptimized={process.env.NODE_ENV === "development"}
-                      // "text-transparent" is the magic trick that hides the ugly alt text if the image fails!
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 text-transparent"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 text-transparent"
+                      loading="lazy"
                     />
                   ) : (
                     <ImageIcon className="w-12 h-12 text-slate-300 dark:text-slate-600" />

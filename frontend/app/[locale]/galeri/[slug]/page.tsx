@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, Loader2, Calendar } from "lucide-react";
 import { api, API_BASE_URL } from "../../../../lib/api";
 
