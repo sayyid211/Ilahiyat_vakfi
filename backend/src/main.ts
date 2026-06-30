@@ -14,7 +14,15 @@ async function bootstrap() {
     credentials: true,
   });
 
+  app.setGlobalPrefix('api');
+
   // 2. Explicitly set the backend to run on port 4000 to match our frontend api.ts
   await app.listen(4000, '0.0.0.0');
 }
-bootstrap();
+bootstrap().catch((err) => {
+  // Ensure unhandled rejections are logged and process exits with non-zero code
+  // This satisfies the requirement to handle the returned Promise.
+  // eslint-disable-next-line no-console
+  console.error(err);
+  process.exit(1);
+});
