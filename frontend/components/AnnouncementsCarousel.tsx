@@ -76,23 +76,21 @@ export default function AnnouncementsCarousel() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10 pointer-events-none" />
             
             {item.linkUrl ? (
-              <a href={item.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer">
-                <img 
-                  src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
-                  alt={item.title}
-                  priority
-                  unoptimized={process.env.NODE_ENV === "development"}
-                  className="object-cover"
-                />
-              </a>
-            ) : (
-              <img 
-                src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
-                alt={item.title}
-                priority
-                unoptimized={process.env.NODE_ENV === "development"}
-                className="object-cover"
-              />
+              {item.linkUrl ? (
+  <a href={item.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer">
+    <img 
+      src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
+      alt={item.title}
+      className="object-cover w-full h-full"
+    />
+  </a>
+) : (
+  <img 
+    src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
+    alt={item.title}
+    className="object-cover w-full h-full"
+  />
+)}
             )}
           </div>
         ))}
