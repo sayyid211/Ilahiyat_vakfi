@@ -77,20 +77,18 @@ export default function AnnouncementsCarousel() {
             
             {item.linkUrl ? (
               <a href={item.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer">
-                <Image 
+                <img 
                   src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
                   alt={item.title}
-                  fill
                   priority
                   unoptimized={process.env.NODE_ENV === "development"}
                   className="object-cover"
                 />
               </a>
             ) : (
-              <Image 
+              <img 
                 src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
                 alt={item.title}
-                fill
                 priority
                 unoptimized={process.env.NODE_ENV === "development"}
                 className="object-cover"
