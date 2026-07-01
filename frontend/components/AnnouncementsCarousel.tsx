@@ -78,7 +78,7 @@ export default function AnnouncementsCarousel() {
             {item.linkUrl ? (
               <a href={item.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer">
                 <img 
-                  src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
+                  src={item.imageUrl.startsWith('/') ? item.imageUrl : `/${item.imageUrl}`}
                   alt={item.title}
                   className="object-cover w-full h-full"
                 />
@@ -86,7 +86,7 @@ export default function AnnouncementsCarousel() {
             ) : (
               <div className="block w-full h-full relative">
                 <img 
-                  src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
+                  src={item.imageUrl.startsWith('/') ? item.imageUrl : `/${item.imageUrl}`}
                   alt={item.title}
                   className="object-cover w-full h-full"
                 />
