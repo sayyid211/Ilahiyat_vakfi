@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Calendar, Loader2, ArrowRight } from "lucide-react";
@@ -81,10 +82,11 @@ export default function LatestNews() {
                   <span className="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20 shadow-md">
                     Haber
                   </span>
-                  <img 
+                  <Image
+                    fill
                     src={news.imageUrl.startsWith('/') ? `${API_BASE_URL}${news.imageUrl}` : `${API_BASE_URL}/${news.imageUrl}`}
                     alt={news.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 text-transparent z-10"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 text-transparent z-10"
                     loading="lazy"
                   />
                 </div>

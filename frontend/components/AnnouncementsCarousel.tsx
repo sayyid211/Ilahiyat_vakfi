@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { api, API_BASE_URL } from "../lib/api";
@@ -77,23 +78,23 @@ export default function AnnouncementsCarousel() {
             
             {item.linkUrl ? (
               <a href={item.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer">
-                <img 
-                  src={`/public/uploads/${item.imageUrl.split('/').pop()}`}
+                <Image
+                  fill
+                  src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
                   alt={item.title}
-                  className="object-cover w-full h-full"
+                  className="object-cover"
                 />
               </a>
             ) : (
               <div className="block w-full h-full relative">
-                <img 
-                  src={`/public/uploads/${item.imageUrl.split('/').pop()}`}
+                <Image
+                  fill
+                  src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
                   alt={item.title}
-                  className="object-cover w-full h-full"
+                  className="object-cover"
                 />
               </div>
             )}
-            
-          {/* THESE WERE THE MISSING CLOSING TAGS */}
           </div>
         ))}
       </div>

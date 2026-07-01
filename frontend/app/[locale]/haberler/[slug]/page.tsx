@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -59,8 +60,9 @@ export default function NewsDetailPage() {
       {/* Hero Image Section */}
       <div className="w-full h-[40vh] md:h-[60vh] relative bg-slate-900">
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark overlay for text readability */}
-        <img 
-          src={`${API_BASE_URL}${article.imageUrl}`} 
+        <Image
+          fill
+          src={`${API_BASE_URL}${article.imageUrl}`}
           alt={article.title}
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"

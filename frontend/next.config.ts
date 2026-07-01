@@ -9,10 +9,10 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '4000', // Your NestJS backend port
-        pathname: '/public/uploads/**',
+        protocol: 'https',
+        hostname: 'elazigilahiyatveharputilimvakfi.org',
+        port: ' ', // Your NestJS backend port
+        pathname: '/api/public/uploads/**',
       },
       // Note: When you launch the real site, you will add your production backend URL here too!
     ],

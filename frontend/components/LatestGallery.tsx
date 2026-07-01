@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Images, Loader2 } from "lucide-react";
@@ -70,12 +71,13 @@ export default function LatestGallery() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent z-10" />
                 
-<img
+<Image
+                    fill
                     src={album.coverImage.startsWith('/') ? `${API_BASE_URL}${album.coverImage}` : `${API_BASE_URL}/${album.coverImage}`}
                     alt={album.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                     loading="lazy"
-                />
+                  />
                 
                 {/* Floating Icon */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">

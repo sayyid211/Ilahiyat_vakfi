@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -74,11 +75,11 @@ export default function PublicNewsPage() {
               >
                 {/* Image Container */}
                 <div className="aspect-[16/9] w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800">
-                  <img
-                    src={`${API_BASE_URL}${item.imageUrl}`}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                    <Image
+                      fill
+                      src={`${API_BASE_URL}${item.imageUrl}`}
+                      alt={item.title}
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Calendar, Loader2, ArrowRight, MapPin, Clock } from "lucide-react";
@@ -85,10 +86,11 @@ export default function LatestActivities() {
                     <span className="absolute top-4 left-4 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full z-20 shadow-md">
                       Yaklaşan Etkinlik
                     </span>
-                    <img 
+                    <Image
+                      fill
                       src={activity.imageUrl.startsWith('/') ? `${API_BASE_URL}${activity.imageUrl}` : `${API_BASE_URL}/${activity.imageUrl}`}
                       alt={activity.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 text-transparent z-10"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 text-transparent z-10"
                     />
                   </div>
                   

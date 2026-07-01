@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Calendar, Images, Loader2, PlayCircle } from "lucide-react";
@@ -80,10 +81,11 @@ export default function PublicGalleryPage() {
                     {album.mediaUrls?.length || 0} Medya
                   </div>
 
-                  <img 
-                    src={album.coverImage.startsWith('/') ? `${API_BASE_URL}${album.coverImage}` : `${API_BASE_URL}/${album.coverImage}`} 
+                  <Image
+                    fill
+                    src={album.coverImage.startsWith('/') ? `${API_BASE_URL}${album.coverImage}` : `${API_BASE_URL}/${album.coverImage}`}
                     alt={album.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 text-transparent"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 text-transparent"
                     loading="lazy"
                   />
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -66,8 +67,9 @@ export default function ActivityDetailPage() {
       {/* Hero Image Section with Next.js Image */}
       <div className="w-full h-[40vh] md:h-[60vh] relative bg-slate-900">
         <div className="absolute inset-0 bg-black/50 z-10" /> 
-        <img 
-          src={`${API_BASE_URL}${activity.imageUrl}`} 
+        <Image
+          fill
+          src={`${API_BASE_URL}${activity.imageUrl}`}
           alt={activity.title}
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
