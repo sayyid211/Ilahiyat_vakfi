@@ -75,56 +75,56 @@ export default function AnnouncementsCarousel() {
         {announcements.map((item) => (
           <div key={item.id} className="min-w-full h-full relative">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent z-10 pointer-events-none" />
-            
             {item.linkUrl ? (
-                <a href={item.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer overflow-hidden bg-slate-900">
-                  
-                  {/* 1. Blurred Background Layer */}
-                  <div className="absolute inset-0 z-0">
-                    <Image 
-                      src={`${process.env.NEXT_PUBLIC_API_URL}/${item.imageUrl}`}
-                      alt="background blur"
-                      fill
-                      className="object-cover opacity-40 blur-3xl scale-110"
-                    />
-                  </div>
+  <a href={item.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative cursor-pointer overflow-hidden bg-slate-900">
+    
+    {/* 1. Blurred Background Layer */}
+    <div className="absolute inset-0 z-0">
+      <Image 
+        src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
+        alt="background blur"
+        fill
+        className="object-cover opacity-40 blur-3xl scale-110"
+      />
+    </div>
 
-                  {/* 2. Crisp, Uncropped Foreground Layer */}
-                  <div className="absolute inset-0 z-10 flex items-center justify-center p-2 sm:p-4">
-                    <Image 
-                      src={`${process.env.NEXT_PUBLIC_API_URL}/${item.imageUrl}`}
-                      alt={item.title}
-                      fill
-                      className="object-contain drop-shadow-2xl"
-                    />
-                  </div>
+    {/* 2. Crisp, Uncropped Foreground Layer */}
+    <div className="absolute inset-0 z-10 flex items-center justify-center p-2 sm:p-4">
+      <Image 
+        src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
+        alt={item.title}
+        fill
+        className="object-contain drop-shadow-2xl"
+      />
+    </div>
 
-                </a>
-              ) : (
-                <div className="block w-full h-full relative overflow-hidden bg-slate-900">
-                  
-                  {/* 1. Blurred Background Layer */}
-                  <div className="absolute inset-0 z-0">
-                    <Image 
-                      src={`${process.env.NEXT_PUBLIC_API_URL}/${item.imageUrl}`}
-                      alt="background blur"
-                      fill
-                      className="object-cover opacity-40 blur-3xl scale-110"
-                    />
-                  </div>
+  </a>
+) : (
+  <div className="block w-full h-full relative overflow-hidden bg-slate-900">
+    
+    {/* 1. Blurred Background Layer */}
+    <div className="absolute inset-0 z-0">
+      <Image 
+        src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
+        alt="background blur"
+        fill
+        className="object-cover opacity-40 blur-3xl scale-110"
+      />
+    </div>
 
-                  {/* 2. Crisp, Uncropped Foreground Layer */}
-                  <div className="absolute inset-0 z-10 flex items-center justify-center p-2 sm:p-4">
-                    <Image 
-                      src={`${process.env.NEXT_PUBLIC_API_URL}/${item.imageUrl}`}
-                      alt={item.title}
-                      fill
-                      className="object-contain drop-shadow-2xl"
-                    />
-                  </div>
+    {/* 2. Crisp, Uncropped Foreground Layer */}
+    <div className="absolute inset-0 z-10 flex items-center justify-center p-2 sm:p-4">
+      <Image 
+        src={item.imageUrl.startsWith('/') ? `${API_BASE_URL}${item.imageUrl}` : `${API_BASE_URL}/${item.imageUrl}`}
+        alt={item.title}
+        fill
+        className="object-contain drop-shadow-2xl"
+      />
+    </div>
 
-                </div>
-              )}
+  </div>
+)}
+            
           </div>
         ))}
       </div>
