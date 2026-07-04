@@ -19,7 +19,7 @@ import { GalleryModule } from './gallery/gallery.module';
     ActivityModule,
     AnnouncementModule,
     ServeStaticModule.forRoot({
-      rootPath: '/root/var/www/Ilahiyat_vakfi/backend/public', //join(__dirname, '..', 'public'),
+      rootPath: join(process.cwd(), 'public'), //'/root/var/www/Ilahiyat_vakfi/backend/public', //join(__dirname, '..', 'public'),
       serveRoot: '/api/public', // This means images will be accessible at http://localhost:4000/public/uploads/...
       serveStaticOptions: {
         index: false, // Disable directory listing
