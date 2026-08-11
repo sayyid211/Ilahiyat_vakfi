@@ -11,7 +11,6 @@ import { UploadController } from './upload/upload.controller';
 import { UploadModule } from './upload/upload.module';
 import { GalleryModule } from './gallery/gallery.module';
 
-
 @Module({
   imports: [
     PrismaModule,
