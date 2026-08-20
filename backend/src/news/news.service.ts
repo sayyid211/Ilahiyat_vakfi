@@ -26,29 +26,44 @@ export class NewsService {
   }
 
   async create(createNewsDto: CreateNewsDto) {
-    const slug = this.generateSlug(createNewsDto.title);
-    const client: any = this.prisma;
-    return await client.news.create({
+    // Extract mediaFiles out so we can format them for Prisma
+    const { mediaFiles, ...newsData } = createNewsDto;
+    const slug = this.generateSlug(newsData.title);
+    
+    return await this.prisma.news.create({
       data: {
-        ...createNewsDto,
+        ...newsData,
         slug,
-        date: new Date(createNewsDto.date),
+        date: new Date(newsData.date),
+        // If the admin panel sent media files, create them in the related table
+        ...(mediaFiles && mediaFiles.length > 0
+          ? {
+              mediaFiles: {
+                create: mediaFiles.map((file) => ({
+                  url: file.url,
+                  type: file.type,
+                })),
+              },
+            }
+          : {}),
       },
+      // Return the new media files back to the frontend immediately
+      include: { mediaFiles: true }, 
     });
   }
 
   async findAll(includeUnpublished = false) {
-    const client: any = this.prisma;
-    return await client.news.findMany({
+    return await this.prisma.news.findMany({
       where: includeUnpublished ? {} : { isPublished: true },
       orderBy: { date: 'desc' },
+      include: { mediaFiles: true }, // ADDED: Fetch the media slider files
     });
   }
 
   async findOne(id: string) {
-    const client: any = this.prisma;
-    const news = await client.news.findUnique({
+    const news = await this.prisma.news.findUnique({
       where: { id },
+      include: { mediaFiles: true }, // ADDED: Fetch the media slider files
     });
 
     if (!news) {
@@ -59,9 +74,9 @@ export class NewsService {
   }
 
   async findBySlug(slug: string) {
-    const client: any = this.prisma;
-    const news = await client.news.findUnique({
+    const news = await this.prisma.news.findUnique({
       where: { slug },
+      include: { mediaFiles: true }, // ADDED: Fetch the media slider files
     });
 
     if (!news) {
@@ -73,29 +88,46 @@ export class NewsService {
 
   async update(id: string, updateNewsDto: UpdateNewsDto) {
     await this.findOne(id);
+    
+    // Extract mediaFiles to handle them separately
+    const { mediaFiles, ...updateData } = updateNewsDto;
 
-    // FIX 1: Explicitly type this as string or undefined
     let newSlug: string | undefined = undefined;
-    if (updateNewsDto.title) {
-      newSlug = this.generateSlug(updateNewsDto.title);
+    if (updateData.title) {
+      newSlug = this.generateSlug(updateData.title);
     }
 
     return await this.prisma.news.update({
       where: { id },
       data: {
-        ...updateNewsDto,
-        // FIX 2: Use ternary operators for conditional spreading
+        ...updateData,
         ...(newSlug ? { slug: newSlug } : {}),
-        ...(updateNewsDto.date ? { date: new Date(updateNewsDto.date) } : {}),
+        ...(updateData.date ? { date: new Date(updateData.date) } : {}),
+        
+        // If the frontend sends an updated media list:
+        // We delete the old related media rows and create the new ones.
+        ...(mediaFiles 
+          ? {
+              mediaFiles: {
+                deleteMany: {}, // Clear out the old slider files
+                create: mediaFiles.map((file) => ({
+                  url: file.url,
+                  type: file.type,
+                })),
+              },
+            }
+          : {}),
       },
+      include: { mediaFiles: true }, // Return the updated list
     });
   }
 
   async remove(id: string) {
     await this.findOne(id);
-    const client: any = this.prisma;
-    return await client.news.delete({
+    return await this.prisma.news.delete({
       where: { id },
+      // Note: Because we added onDelete: Cascade in the Prisma schema earlier,
+      // deleting this news article will automatically delete the related NewsMedia rows!
     });
   }
 }
