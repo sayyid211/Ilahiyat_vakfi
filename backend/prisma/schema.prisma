@@ -18,7 +18,8 @@ model News {
   slug        String   @unique
   description String
   content     String   @db.Text
-  imageUrl    String
+  imageUrl    String 
+  mediaFiles  NewsMedia[] // A single News item can have many media files
   date        DateTime
   isPublished Boolean  @default(true)
   createdAt   DateTime @default(now())
@@ -62,4 +63,18 @@ model Gallery {
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model NewsMedia {
+  id      String    @id @default(uuid()) // Standardized to uuid
+  url     String    // The path to the file (e.g., '/public/uploads/my-video.mp4')
+  
+  // A standard enum-like string to help the frontend instantly know what to render.
+  type    String    // We will enforce 'image' or 'video' in the backend code.
+
+  // Added onDelete: Cascade so deleting a news article cleans up the media table
+  news    News      @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  newsId  String
+
+  @@index([newsId]) // Indexes are important for speed.
 }
