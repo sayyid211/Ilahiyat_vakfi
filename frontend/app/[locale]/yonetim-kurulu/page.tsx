@@ -11,14 +11,28 @@ const boardMembers = [
     // imageUrl: "/team/veysel-ozdemir.jpg" // Add paths here later
   },
   {
-    name: "Prof. Dr. İskender Oymak",
-    role: "Yönetim Kurulu Başkan Yrd.",
+    name: "Doç. Dr. Mehmet ÖZTÜRK",
+    role: "1.Başkan Yardımcısı – Muhasip Üye",
     affiliation: "Fırat Üniversitesi İlahiyat Fakültesi Öğretim Üyesi",
-    badgeColor: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+    badgeColor: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    // imageUrl: "/team/mehmet-ozturk.jpg" // Add paths here later
   },
   {
-    name: "Doç. Dr. Ayşe Meydanoğlu",
-    role: "Yönetim Kurulu Başkan Yrd.",
+    name: "Doç. Dr. Zeynep ALİMOĞLU SÜRMELİ",
+    role: "2. Başkan Yardımcısı",
+    affiliation: "Fırat Üniversitesi İlahiyat Fakültesi Öğretim Üyesi",
+    badgeColor: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    // imageUrl: "/team/zeynep-alimoglu-surmeli.jpg" // Add paths here later
+  },
+  {
+    name: "Av. Ömer Budak",
+    role: "Üye",
+    affiliation: "Serbest Avukat", // Added a generic affiliation since none was provided
+    badgeColor: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
+  },
+  {
+    name: "Prof. Dr. İskender Oymak",
+    role: "Üye",
     affiliation: "Fırat Üniversitesi İlahiyat Fakültesi Öğretim Üyesi",
     badgeColor: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
   },
@@ -28,18 +42,7 @@ const boardMembers = [
     affiliation: "Elazığ Belediyesi Başkan Yrd.",
     badgeColor: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
   },
-  {
-    name: "Doç. Dr. Mehmet Öztürk",
-    role: "Üye",
-    affiliation: "Fırat Üniversitesi İlahiyat Fakültesi Öğretim Üyesi",
-    badgeColor: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
-  },
-  {
-    name: "Av. Ömer Budak",
-    role: "Üye",
-    affiliation: "Serbest Avukat", // Added a generic affiliation since none was provided
-    badgeColor: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
-  },
+  
 ];
 
 export default function YonetimKuruluPage() {
