@@ -59,7 +59,7 @@ export default function DarulUlumPage() {
           {/* PILLAR 1: İlim */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
-              <Image src="/kultur-evi2.png" alt="İlmî Meclisler" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src="/kultur-evi2o.png" alt="İlmî Meclisler" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
             <div className="order-1 lg:order-2 lg:pl-10">
               <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
@@ -108,14 +108,14 @@ export default function DarulUlumPage() {
               </ul>
             </div>
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
-              <Image src="/kultur-evi3.png" alt="Sanat Atölyeleri" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src="/kultur-evi3o.png" alt="Sanat Atölyeleri" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
 
           {/* PILLAR 3: Toplum */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
-              <Image src="/kultur-evi4.png" alt="Yaşayan Mekan" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src="/kultur-evi4o.png" alt="Yaşayan Mekan" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
             <div className="order-1 lg:order-2 lg:pl-10">
               <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 dark:text-emerald-400">
@@ -160,7 +160,7 @@ export default function DarulUlumPage() {
               </ul>
             </div>
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
-              <Image src="/kultur-evi5.png" alt="Sosyal Alanlar" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src="/kultur-evi5o.png" alt="Sosyal Alanlar" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
 
