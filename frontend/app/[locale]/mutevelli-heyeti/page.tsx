@@ -84,14 +84,14 @@ export default function MutevelliHeyetiPage() {
             {/* Decorative background icon */}
             <Info className="absolute -right-8 -bottom-8 w-48 h-48 text-slate-50 dark:text-slate-800/50 pointer-events-none" />
             
-            <div className="relative z-10 max-w-4xl">
+            {/*<div className="relative z-10 max-w-4xl">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                 Heyetin Yapısı ve Vizyonu
               </h2>
               <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
                 Vakfımızın mütevelli heyeti Fırat Üniversitesi İlahiyat Fakültesi'nin ve Fırat Üniversitesinin bazı öğretim elemanları ile şehrimizin çeşitli kıymetlerinden müteşekkil olup yaklaşık 30 kişilik bir heyet ile zaman zaman toplanıp vakfın hizmetlerini görüşmektedirler. Vakıf herhangi bir cemaat, tarikat, stk gibi oluşumlara angaje olmadan bilimsel yöntemlerle hareket eden, gönüllülük esasına dayalı bir toplum hareketidir. Mütevelli heyeti öğretim elemanları ve halkımızdan gönüllü olarak katılım sağlamak isteyen herkese açıktır.
               </p>
-            </div>
+            </div>*/}
           </div>
 
           {/* Compact 4-Column Avatar Grid */}

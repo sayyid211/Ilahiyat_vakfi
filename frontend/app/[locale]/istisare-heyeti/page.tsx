@@ -2,7 +2,7 @@ import { Users, Info, User } from "lucide-react";
 // import Image from "next/image"; // Uncomment when adding real photos
 
 // 1. DATA STRUCTURE: Separating title and name creates a cleaner UI!
-const advisoryBoard = [
+{/*const advisoryBoard = [
   { title: "Prof. Dr.", name: "İsmail Erdoğan" },
   { title: "Prof. Dr.", name: "Mehmet Erdem" },
   { title: "Prof. Dr.", name: "İskender Oymak" },
@@ -19,7 +19,7 @@ const advisoryBoard = [
   { title: "Dr. Öğr. Üyesi", name: "Rahime Çelik" },
   { title: "Ar. Gör.", name: "Mesut Şen" },
   { title: "Ar. Gör.", name: "Ersin Akdağ" },
-];
+];*/}
 
 export default function IstisareHeyetiPage() {
   return (
