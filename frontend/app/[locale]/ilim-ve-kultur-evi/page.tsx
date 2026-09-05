@@ -40,7 +40,7 @@ export default function DarulUlumPage() {
 
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-slate-700/50 group">
               <Image 
-                src="/kultur-evi1.png" 
+                src="/kultur-evi1o.png" 
                 alt="Dâru'l-Ulûm Merkezi" 
                 fill 
                 className="object-cover transition-transform duration-1000 group-hover:scale-105" 
