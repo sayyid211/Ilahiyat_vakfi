@@ -88,28 +88,28 @@ export function Navbar() {
                   </NavigationMenuLink>
                 </li>
                     <ListItem href="/yonetim-kurulu" title="Yönetim Kurulu">
-                      Vakfımızın yönetim kadrosu.
+                      Vakfımızın günlük faaliyetlerini yürüten ve kararları uygulayan icra kadromuz.
                     </ListItem>
                     <ListItem href="/mutevelli-heyeti" title="Mütevelli Heyeti">
-                      Vakfımızın yönetim kadrosu.
+                      Vakfın temel gayesini koruyan, denetleyen ve yönlendiren en üst karar organımız.
                     </ListItem>
                     <ListItem href="/istisare-heyeti" title="İSTİŞARE HEYETİ">
-                      Vakfımızın yönetim kadrosu.
+                      Tecrübe ve ilmi birikimleriyle çalışmalarımıza rehberlik eden danışma kurulumuz.
                     </ListItem>
                     <ListItem href="/tarihcesi" title="TARİHÇESİ">
-                      Vakfımızın yönetim kadrosu.
+                      Kuruluşumuzdan bugüne vakfımızın geçmişi ve iyilik yolculuğu.
                     </ListItem>
                     <ListItem href="/dua-ve-bedduasi" title="DUA VE BEDDUASI">
-                      Vakfımızın yönetim kadrosu.
+                      Vakfiyemizde yer alan kurucu duaları ve vakıf malını korumaya dair tarihi ikazlar.
                     </ListItem>
                     <ListItem href="/galeri" title="Fotoğraf & Video Galerisi">
-                      Vakıf etkinliklerimizden kareler.
+                      Gerçekleştirdiğimiz etkinliklerden, projelerimizden ve tesislerimizden görsel kareler.
                     </ListItem>
                     <ListItem href="/bagis" title="BAĞIŞ">
-                      Vakfımızın yönetim kadrosu.
+                      Öğrencilerimize ve hayır hizmetlerimize destek olabileceğiniz güvenli bağış kanallarımız.
                     </ListItem>
                     <ListItem href="/iletisim" title="İletişim">
-                      Bize ulaşın.
+                      Soru, görüş ve destekleriniz için vakfımızla doğrudan irtibata geçin.
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
