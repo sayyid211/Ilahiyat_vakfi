@@ -155,7 +155,7 @@ export default function YurtPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 group bg-slate-900">
                 <div className="aspect-video relative w-full">
                   <iframe 
-                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                    src="https://youtube.com/shorts/6VAqCLtK7yI?feature=share" 
                     title="Yurt Tanıtım Videosu" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen
