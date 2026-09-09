@@ -53,7 +53,7 @@ export default function HomePage() {
       <LatestNews />
 
       {/* Dynamic Latest Activities Section */}
-      <LatestActivities />
+      {/*<LatestActivities />*/}
 
       {/* Dynamic Latest Gallery Section */}
       <LatestGallery />

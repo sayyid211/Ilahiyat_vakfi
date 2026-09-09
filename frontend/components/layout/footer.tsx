@@ -77,7 +77,7 @@ export function Footer() {
 
             <h3 className="text-white font-semibold mb-4 text-lg">Bizi Takip Edin</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-slate-400 hover:text-white transition-colors"><FaFacebook className="h-6 w-6" /></a>
+              <a href="https://www.facebook.com/profile.php?id=61568446975754#" className="text-slate-400 hover:text-white transition-colors"><FaFacebook className="h-6 w-6" /></a>
               <a href="https://www.instagram.com/elazigharputilimvakfi/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors"><FaInstagram className="h-6 w-6" /></a>
               <a href="https://www.youtube.com/@ilahiyatvakfi23" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors"><FaYoutube className="h-6 w-6" /></a>
               {/* Note: I used the new X logo for Twitter here! */}
