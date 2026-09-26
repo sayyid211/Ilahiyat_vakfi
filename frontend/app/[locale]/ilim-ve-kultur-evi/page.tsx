@@ -108,7 +108,7 @@ export default function DarulUlumPage() {
               </ul>
             </div>
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group">
-              <Image src="/du2.jpeg" alt="Sanat Atölyeleri" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src="/du3n.jpeg" alt="Sanat Atölyeleri" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
           </div>
 
