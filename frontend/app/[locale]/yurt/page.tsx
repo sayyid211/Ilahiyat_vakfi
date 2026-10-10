@@ -155,7 +155,7 @@ export default function YurtPage() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 group bg-slate-900">
               <div className="aspect-video relative w-full">
                 <video 
-                  src="/tanitim-videosu.mp4" /* Replace with your actual local video path */
+                  src="/yurtvid.mp4" 
                   title="Yurt Tanıtım Videosu" 
                   controls
                   className="absolute top-0 left-0 w-full h-full object-cover"
