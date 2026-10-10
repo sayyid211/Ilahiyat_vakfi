@@ -152,30 +152,22 @@ export default function YurtPage() {
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 group bg-slate-900">
-                <div className="aspect-video relative w-full">
-                  <iframe 
-                    src="https://youtube.com/embed/isHl90xC6Fk" 
-                    title="Yurt Tanıtım Videosu" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full"
-                  ></iframe>
-                </div>
-              </div>
-              <div className="flex justify-between items-center px-2">
-                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Yurt Tanıtım Filmi</p>
-                <a 
-                  href="https://youtube.com/watch?v=YOUR_VIDEO_ID" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm font-bold text-red-600 hover:text-red-700 transition-colors"
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 group bg-slate-900">
+              <div className="aspect-video relative w-full">
+                <video 
+                  src="/tanitim-videosu.mp4" /* Replace with your actual local video path */
+                  title="Yurt Tanıtım Videosu" 
+                  controls
+                  className="absolute top-0 left-0 w-full h-full object-cover"
                 >
-                  <PlayCircle className="w-4 h-4" />
-                  YouTube'da İzle
-                </a>
+                  Tarayıcınız video etiketini desteklemiyor. (Your browser does not support the video tag.)
+                </video>
               </div>
             </div>
+            <div className="flex items-center px-2">
+              <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Yurt Tanıtım Filmi</p>
+            </div>
+          </div>
 
           </div>
         </div>
