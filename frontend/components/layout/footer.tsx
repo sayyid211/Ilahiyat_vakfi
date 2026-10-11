@@ -47,17 +47,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Faaliyetler */}
-          {/*<div>
-            <h3 className="text-white font-semibold mb-4 text-lg">Faaliyetler</h3>
-            <ul className="space-y-3 text-sm">
-              {/*<li><Link href="/projeler" className="hover:text-white transition-colors">Projeler</Link></li>*/}
-              <li><Link href="/etkinlikler" className="hover:text-white transition-colors">Etkinlikler</Link></li>
-              {/*<li><Link href="/yayinlar" className="hover:text-white transition-colors">Yayınlar</Link></li>*/}
-              <li><Link href="/haberler" className="hover:text-white transition-colors">Haberler</Link></li>
-            </ul>
-          </div> */}
-
           {/* Column 4: Araştırma Merkezleri */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-lg">Merkezler</h3>
