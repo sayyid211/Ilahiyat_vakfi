@@ -35,7 +35,7 @@ export function Footer() {
           {/* Column 2: Kurumsal */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-lg">Kurumsal</h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-x-6 gap-y-3 text-sm">
               <li><Link href="/hakkimizda" className="hover:text-white transition-colors">Hakkımızda</Link></li>
               <li><Link href="/mutevelli-heyeti" className="hover:text-white transition-colors">Mütevelli Heyeti</Link></li>
               <li><Link href="/tarihcesi" className="hover:text-white transition-colors">Tarihçesi</Link></li>
@@ -48,7 +48,7 @@ export function Footer() {
           </div>
 
           {/* Column 3: Faaliyetler */}
-          <div>
+          {/*<div>
             <h3 className="text-white font-semibold mb-4 text-lg">Faaliyetler</h3>
             <ul className="space-y-3 text-sm">
               {/*<li><Link href="/projeler" className="hover:text-white transition-colors">Projeler</Link></li>*/}
@@ -56,7 +56,7 @@ export function Footer() {
               {/*<li><Link href="/yayinlar" className="hover:text-white transition-colors">Yayınlar</Link></li>*/}
               <li><Link href="/haberler" className="hover:text-white transition-colors">Haberler</Link></li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 4: Araştırma Merkezleri */}
           <div>
