@@ -17,9 +17,9 @@ import {
   GraduationCap,
 } from "lucide-react";
 
-// Generates ["/gm1.jpeg", "/gm2.jpeg", ..., "/gm24.jpeg"]
+// Generates ["/gm1.jpeg", "/gm2.jpeg", ..., "/gm39.jpeg"]
 // Adjust the path or extension here if your files are named differently
-const ALL_IMAGES = Array.from({ length: 24 }, (_, i) => `/gm${i + 1}.jpeg`);
+const ALL_IMAGES = Array.from({ length: 39 }, (_, i) => `/gm${i + 1}.jpeg`);
 
 export default function GenclikMerkeziPage() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -66,8 +66,8 @@ export default function GenclikMerkeziPage() {
   }, [lightboxIndex, closeLightbox, nextImage, prevImage]);
 
   // Show 8 featured photos in the Bento grid initially (starting from gm6 so we don't repeat the first 5)
-  // Or show all 24 if the user clicks "Tümünü Gridde Aç"
-  const bentoImages = showAllGrid ? ALL_IMAGES : ALL_IMAGES.slice(5, 13);
+  // Or show all 39 if the user clicks "Tümünü Gridde Aç"
+  const bentoImages = showAllGrid ? ALL_IMAGES : ALL_IMAGES.slice(5, 20);
 
   return (
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen">
@@ -102,7 +102,7 @@ export default function GenclikMerkeziPage() {
               className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-slate-700/50 group cursor-pointer"
             >
               <Image
-                src={ALL_IMAGES[0]}
+                src={ALL_IMAGES[35]}
                 alt="Fırat Üniversitesi Gençlik Merkezi ve Murad Camii"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -110,7 +110,7 @@ export default function GenclikMerkeziPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur-md text-white text-xs px-3 py-2 rounded-xl flex items-center gap-2 border border-slate-700 opacity-90 group-hover:opacity-100 transition-opacity">
                 <Images className="w-4 h-4 text-amber-400" />
-                <span>24 Fotoğrafı İncele</span>
+                <span>Hepsi Fotoğrafı İncele</span>
               </div>
             </div>
 
@@ -129,7 +129,7 @@ export default function GenclikMerkeziPage() {
               className="order-2 lg:order-1 relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group cursor-pointer"
             >
               <Image
-                src={ALL_IMAGES[1]}
+                src={ALL_IMAGES[18]}
                 alt="Kütüphane ve Ders Çalışma Alanları"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -186,7 +186,7 @@ export default function GenclikMerkeziPage() {
               className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group cursor-pointer"
             >
               <Image
-                src={ALL_IMAGES[2]}
+                src={ALL_IMAGES[18]}
                 alt="Eğitim, Söyleşi ve Kültürel Etkinlikler"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -201,7 +201,7 @@ export default function GenclikMerkeziPage() {
               className="order-2 lg:order-1 relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group cursor-pointer"
             >
               <Image
-                src={ALL_IMAGES[3]}
+                src={ALL_IMAGES[16]}
                 alt="Murad Camii ve Manevi Atmosfer"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -251,7 +251,7 @@ export default function GenclikMerkeziPage() {
               className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 shadow-xl group cursor-pointer"
             >
               <Image
-                src={ALL_IMAGES[4]}
+                src={ALL_IMAGES[31]}
                 alt="Hayır Hizmetleri ve Maddi Destekler"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -279,7 +279,7 @@ export default function GenclikMerkeziPage() {
               onClick={() => setShowAllGrid(!showAllGrid)}
               className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium transition-colors"
             >
-              {showAllGrid ? "Özeti Göster (8)" : "Tümünü Sayfada Aç (24)"}
+              {showAllGrid ? "Özeti Göster (8)" : "Tümünü Sayfada Aç (39)"}
             </button>
             <button
               onClick={() => setLightboxIndex(0)}
@@ -324,7 +324,7 @@ export default function GenclikMerkeziPage() {
                 {isLastPreviewTile && (
                   <div className="absolute inset-0 bg-slate-900/75 backdrop-blur-sm flex flex-col items-center justify-center text-white p-4 text-center transition-colors group-hover:bg-slate-900/85">
                     <span className="text-3xl font-bold text-amber-400 mb-1">
-                      +16
+                      +31
                     </span>
                     <span className="text-sm font-medium text-slate-200">
                       Tüm Fotoğrafları Gör
