@@ -35,12 +35,17 @@ export function Footer() {
           {/* Column 2: Kurumsal */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-lg">Kurumsal</h3>
-            <ul className="grid grid-cols-2 grid-rows-4 grid-flow-col gap-x-6 gap-y-3 text-sm">
-              <li><Link href="/hakkimizda" className="hover:text-white transition-colors">Hakkımızda</Link></li>
+            <ul className="space-y-3 text-sm">
               <li><Link href="/mutevelli-heyeti" className="hover:text-white transition-colors">Mütevelli Heyeti</Link></li>
               <li><Link href="/tarihcesi" className="hover:text-white transition-colors">Tarihçesi</Link></li>
               <li><Link href="/yonetim-kurulu" className="hover:text-white transition-colors">Yönetim Kurulu</Link></li>
               <li><Link href="/istisare-heyeti" className="hover:text-white transition-colors">İstişare Heyeti</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-white font-semibold mb-4 text-lg"> </h3>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/hakkimizda" className="hover:text-white transition-colors">Hakkımızda</Link></li>
               <li><Link href="/dua-ve-bedduasi" className="hover:text-white transition-colors">Dua Ve Bedduası</Link></li>
               <li><Link href="/bagis" className="hover:text-white transition-colors">Bağış</Link></li>
               <li><Link href="/iletisim" className="hover:text-white transition-colors">İletişim</Link></li>
